@@ -37,14 +37,8 @@ namespace WpfApp17.Admin.LVsAdm
 
         private void BTEditAbi(object sender, RoutedEventArgs e)
         {
-            Abiturienti AbiAbi = (sender as Button).DataContext as Abiturienti;
+            Abiturienti AbiAbi = LVAbiAdm.SelectedItem as Abiturienti;
                 NavigationService.Navigate(new AddAbi1(AbiAbi));
-            Update();
-        }
-
-        private void visUserChanges(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Update();
         }
 
         private void Soft()
@@ -60,7 +54,21 @@ namespace WpfApp17.Admin.LVsAdm
 
         private void BtAbiCard(object sender, RoutedEventArgs e)
         {
-            
+            Abiturienti AbiAbi = (sender as Button).DataContext as Abiturienti;
+            NavigationService.Navigate(new AddAbi1(AbiAbi));
+            Update();
+        }
+
+        private void BTDelAbi(object sender, RoutedEventArgs e)
+        {
+            Abiturienti DelService = LVAbiAdm.SelectedItem as Abiturienti;
+            if (MessageBox.Show("Вы дейсвительно хотите удалить запись", "Удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                ISPr2243_ZobninDS_UPContext.Init().Remove<Abiturienti>(DelService);
+
+                ISPr2243_ZobninDS_UPContext.Init().SaveChanges();
+            }
+            Update();
         }
     }
 }
