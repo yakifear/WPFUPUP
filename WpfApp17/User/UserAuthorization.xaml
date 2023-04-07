@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfApp17.User.UserAuthorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp17.User"
+        mc:Ignorable="d"
+        Title="UserAuthorization" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Логин"/>
+            <TextBox Width="250" Name="TbLoginUser"/>
+            <TextBlock Text=""/>
+            <TextBlock Text="Пароль"/>
+            <TextBox Name="TbPasswordUser"/>
+        </StackPanel>
+        <Button Grid.Row="1" Margin="7" MaxWidth="250" Content="Войти" Click="BtLoginUser"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Margin="7" MaxWidth="250" Content="Назад" Click="BtBackUser"/>
+        </Grid>
+    </Grid>
+</Window>

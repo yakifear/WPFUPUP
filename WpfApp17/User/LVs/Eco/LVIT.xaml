@@ -1,0 +1,78 @@
+﻿<Page x:Class="WpfApp17.User.LVs.LVIT"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp17.User.LVs"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LVIT">
+
+                                           
+                    <Grid Background="White">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBox Margin="5" Width="250" Name="TBSearch" TextChanged="TBTextChanged"/>
+                <ComboBox Name="CBSortByName" SelectionChanged="CBSortChanged" Width="250" Margin="5"/>
+                <TextBlock Text="Средний балл " VerticalAlignment="Center"/>
+                <CheckBox Name="CBBal" HorizontalAlignment="Center" VerticalAlignment="Center" Unchecked="CBUn"/>
+                <CheckBox Name="CBEco" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="CBEcoChecked" Unchecked="CBEcoUn" Visibility="Collapsed"/>
+            </StackPanel>
+<ListView Name="LvIT" Grid.Row="1">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                        <Grid Grid.Row="1">
+                            <StackPanel>
+                                <UniformGrid Grid.Row="3">
+                                    <StackPanel>
+                                        <TextBlock>
+                <Run Text="ФИО"/>
+                <Run Text="{Binding Familia}"/>
+                <Run Text="{Binding Imya}"/>
+                <Run Text="{Binding Otchestvo}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                <Run Text="Специальность"/>
+                <Run Text="{Binding Spec}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                    <Run Text="Средний балл:"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                    <Run Text="Русский яз -"/>
+                <Run Text="{Binding BalRus}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                    <Run Text="Матем -"/>
+                <Run Text="{Binding BalMath}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                    <Run Text="Биолог -"/>
+                <Run Text="{Binding BalBiolog}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                    <Run Text="Информатика -"/>
+                <Run Text="{Binding BalInform}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                        </TextBlock>
+                                    </StackPanel>
+
+
+                                </UniformGrid>
+                            </StackPanel>
+                        </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+                    </Grid>
+
+                </Grid>      
+</Page>
